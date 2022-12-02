@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_product_web_page/product_page/widgets/image_slider.dart';
 
 import 'widgets/desktop_appbar.dart';
 
@@ -10,7 +11,12 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(
-        children: const [DesktopAppbar()],
+        children: [
+          const DesktopAppbar(),
+          Row(
+            children: const [ImageSlider(images: [])],
+          )
+        ],
       )),
     );
   }

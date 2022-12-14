@@ -9,8 +9,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Xbox',
       theme: ThemeData(
+          unselectedWidgetColor: AppColors.black,
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
                 textStyle: MaterialStateProperty.all<TextStyle>(const TextStyle(
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
               onBackground: AppColors.black,
               surface: AppColors.white,
               onSurface: AppColors.black)),
-      home: const ProductPage(),
+      home: ProductPage(),
     );
   }
 }

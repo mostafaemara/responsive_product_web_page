@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_product_web_page/product_page/widgets/app_drawer.dart';
 import 'package:responsive_product_web_page/ui_helper.dart';
 
 import 'widgets/desktop_appbar.dart';
 import 'widgets/image_slider.dart';
 import 'widgets/mobile_appbar.dart';
 
-class ProductPage extends StatelessWidget {
-  ProductPage({super.key});
+class ProductPage extends StatefulWidget {
+  const ProductPage({super.key});
+
+  @override
+  State<ProductPage> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  bool _isDrawerOpened = false;
 
   final verticalController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,18 +32,32 @@ class ProductPage extends StatelessWidget {
               children: [
                 Visibility(
                     visible: context.screenType() == ScreenType.desktop,
-                    replacement: const MobileAppBar(),
+                    replacement: MobileAppBar(
+                        onPressed: _isDrawerOpened ? _closeDrawer : _openDrawer,
+                        isDrawerOpened: _isDrawerOpened),
                     child: const DesktopAppBar()),
                 Row(
                   children: const [ImageSlider(images: [])],
                 ),
-                Container(
-                  color: Colors.red,
-                  height: 1400000,
-                ),
+                Visibility(
+                    visible: _isDrawerOpened &&
+                        context.screenType() == ScreenType.mobile,
+                    child: const AppDrawer())
               ],
             )),
       ),
     );
+  }
+
+  void _openDrawer() {
+    setState(() {
+      _isDrawerOpened = true;
+    });
+  }
+
+  void _closeDrawer() {
+    setState(() {
+      _isDrawerOpened = false;
+    });
   }
 }

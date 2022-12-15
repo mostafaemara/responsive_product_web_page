@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
             style: ButtonStyle(
                 textStyle: MaterialStateProperty.all<TextStyle>(const TextStyle(
                     fontSize: 16, fontFamily: "BarlowCondensed")),
-                overlayColor: MaterialStateProperty.all<Color>(AppColors.white),
+                overlayColor:
+                    MaterialStateProperty.all<Color>(Colors.transparent),
                 foregroundColor:
                     MaterialStateProperty.all<Color>(AppColors.black)),
           ),
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
               onBackground: AppColors.black,
               surface: AppColors.white,
               onSurface: AppColors.black)),
-      home: ProductPage(),
+      home: const ProductPage(),
     );
   }
 }

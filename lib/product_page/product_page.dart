@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_product_web_page/colors.dart';
 import 'package:responsive_product_web_page/product_page/widgets/app_drawer.dart';
 import 'package:responsive_product_web_page/product_page/widgets/image_slider.dart';
 import 'package:responsive_product_web_page/ui_helper.dart';
@@ -7,6 +8,7 @@ import 'widgets/desktop_appbar.dart';
 
 import 'widgets/mobile_appbar.dart';
 import 'widgets/product_options.dart';
+import 'widgets/similar_products.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
@@ -76,6 +78,24 @@ class _ProductPageState extends State<ProductPage> {
                       child: const Spacer(),
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 73,
+                ),
+                Text(
+                  "Complete Your Experience".toUpperCase(),
+                  style: const TextStyle(
+                      color: AppColors.black,
+                      fontFamily: "Barlow",
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const SimilarProducts(),
+                const SizedBox(
+                  height: 10,
                 ),
               ],
             )),

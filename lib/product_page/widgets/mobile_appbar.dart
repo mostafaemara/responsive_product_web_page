@@ -14,6 +14,7 @@ class MobileAppBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
+              splashRadius: 1,
               onPressed: onPressed,
               icon: isDrawerOpened
                   ? const Icon(Icons.close)

@@ -7,6 +7,7 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
       color: AppColors.grey,
       width: double.infinity,
       child: Column(children: [
